@@ -1,11 +1,19 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import Pagination from '../common/Pagination';
 
 const UserList = ({ users }) => {
+    function setMax(){
+        if(users.length > 12)
+            return 12;
+        else 
+            return users.length;
+    }
+    
     return (
         <div className="user-list-container">
             <div className="row">
-                {users.map(user =>
+                {users.slice(0, setMax()).map(user =>
                     <div
                         key={user.id}
                         className="col-sm-6 col-md-3 col-lg-3 hover-cursor">
@@ -19,6 +27,7 @@ const UserList = ({ users }) => {
                 )}
 
             </div>
+            {(users.length > 12) && <Pagination/>}
         </div>
 
     );
