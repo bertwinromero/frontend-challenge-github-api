@@ -14,8 +14,8 @@ const Header = () => {
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
                     </button>
-                    <Link to={`/users`}>
-                        <a className="navbar-brand" href="#">Oddle Frontend Challenge</a>
+                    <Link className="navbar-brand" to={`/users`}>
+                        Oddle Frontend Challenge
                     </Link>
                 </div>
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

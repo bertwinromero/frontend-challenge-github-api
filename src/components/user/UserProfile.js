@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as userActions from '../../actions/userActions';
 import LoadingDots from '../common/LoadingDots';
+import { Link } from 'react-router';
 import toastr from 'toastr';
 
 export class UserProfile extends React.Component {
@@ -30,6 +31,9 @@ export class UserProfile extends React.Component {
         return (
             <div>
                 {!this.props.loading && <div>
+                    <Link to={`/users`}>
+                        <button className="btn btn-default">Back</button>
+                    </Link>
                     <div className="user-profile text-center">
                         <img src={user.avatar_url} />
                         <h3>{user.name}</h3>
