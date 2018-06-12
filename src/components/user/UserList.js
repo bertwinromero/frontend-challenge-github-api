@@ -37,7 +37,6 @@ class UserList extends React.Component {
 
     onPageChange(event) {
         
-        console.log(event.target.value);
     }
 
 
@@ -45,7 +44,7 @@ class UserList extends React.Component {
         return (
             <div className="user-list-container">
                 <div className="row">
-                    {this.props.users.slice(0, this.setMax()).map(user =>
+                    {this.props.users.map(user =>
                         <div
                             key={user.id}
                             className="col-sm-6 col-md-3 col-lg-3 hover-cursor">
@@ -59,13 +58,13 @@ class UserList extends React.Component {
                     )}
 
                 </div>
-                {
+                {/* {
                     (this.props.totalCount > 24) &&
                     <Pagination
                         pageCount={this.getPageCount()}
                         onPageChange={this.onPageChange}
                     />
-                }
+                } */}
             </div>
 
         );

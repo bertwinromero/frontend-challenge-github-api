@@ -11,10 +11,10 @@ export function searchUserByIdSuccess(user) {
     return { type: types.SEARCH_USER_BY_ID_SUCCESS, user };
 }
 
-export function searchUsers(username, pageNumber = 1) {
+export function searchUsers(username) {
     return function (dispatch, getState) {
         dispatch(beginAjaxCall());
-        return axios.get(`https://api.github.com/search/users?q=${username}&page=${pageNumber}&per_page=24`).then(res => {
+        return axios.get(`https://api.github.com/search/users?q=${username}`).then(res => {
             dispatch(setTotalCount(res.data.total_count));
             dispatch(searchUsersSuccess(res.data.items));
         }).catch(error => {
