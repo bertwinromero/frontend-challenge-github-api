@@ -5,6 +5,9 @@ import { Link, IndexLink } from 'react-router';
 const Pagination = ({ pageCount, onPageChange }) => {
     let rows = [], i = 0, len = pageCount;
     while (++i <= len) rows.push(i);
+
+    
+
     return (
         <div className="text-center">
             <nav>
@@ -15,7 +18,7 @@ const Pagination = ({ pageCount, onPageChange }) => {
                         </a>
                     </li>
                     {rows.map(function (i) {
-                        return <li key={i} onClick={onPageChange} value={i}><a href="#">{i}</a></li>;
+                        return <li key={i}><a onClick={onPageChange}>{i}</a></li>;
                     })}
 
                     <li>

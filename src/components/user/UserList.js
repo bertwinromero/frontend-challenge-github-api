@@ -27,18 +27,17 @@ class UserList extends React.Component {
     }
 
     getPageCount() {
-        if (this.props.users.length > this.state.max) {
-            // this.setState({ pageCount: Math.ceil(this.props.users.length / this.state.max) })
-            return 2;
+        if (this.props.totalCount > this.state.max) {
+            return Math.ceil(this.props.totalCount / this.state.max);
         }
-
         else
             return 0;
     }
 
 
     onPageChange(event) {
-        console.log(event);
+        
+        console.log(event.target.value);
     }
 
 
@@ -61,7 +60,7 @@ class UserList extends React.Component {
 
                 </div>
                 {
-                    (this.props.users.length > 12) &&
+                    (this.props.totalCount > 24) &&
                     <Pagination
                         pageCount={this.getPageCount()}
                         onPageChange={this.onPageChange}
@@ -74,13 +73,15 @@ class UserList extends React.Component {
 }
 
 UserList.propTypes = {
-    users: PropTypes.array.isRequired
+    users: PropTypes.array.isRequired,
+    totalCount: PropTypes.number.isRequired
 };
 
 
 function mapStateToProps(state, ownProps) {
     return {
-        users: state.users
+        users: state.users,
+        totalCount: state.totalCount
     };
 }
 export default connect(mapStateToProps)(UserList);
